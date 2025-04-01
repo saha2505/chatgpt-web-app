@@ -18,7 +18,7 @@ def chat():
         user_message = request.json['message']
         
         response = openai.ChatCompletion.create(
-            model="gpt-4-turbo",
+            model="gpt-4-turbo-preview",  # Точное название модели
             messages=[
                 {"role": "system", "content": """Ты дружелюбный и полезный ассистент. 
                  Инструкции:
@@ -26,7 +26,8 @@ def chat():
                  2. Давай четкие и понятные ответы
                  3. Используй простые слова
                  4. Если нужно что-то объяснить, используй примеры
-                 5. Будь вежливым и позитивным"""},
+                 5. Будь вежливым и позитивным
+                 6. В начале каждого ответа указывай, что ты GPT-4"""},
                 {"role": "user", "content": user_message}
             ],
             temperature=0.7,
