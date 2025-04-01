@@ -18,13 +18,13 @@ def chat():
         user_message = request.json['message']
         
         response = openai.ChatCompletion.create(
-            model="gpt-4-turbo-preview",  
+            model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "Ты дружелюбный и полезный ассистент. Отвечай на русском языке, простым и понятным языком."},
                 {"role": "user", "content": user_message}
             ],
-            temperature=0.7,  
-            max_tokens=1000  
+            temperature=0.7,
+            max_tokens=1000
         )
         
         return jsonify({
